@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ProdutoService } from '../produto.service';
+import { Produto } from '../produto';
 
 @Component({
   selector: 'tabela-produtos',
@@ -6,8 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./tabela-produtos.component.css']
 })
 export class TabelaProdutosComponent implements OnInit {
-  @Input() lista;
-  constructor() { }
+  lista:Produto[] = [];
+  constructor(private servico: ProdutoService ) {
+    this.lista = servico.getProdutos();  
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ProdutoService } from '../produto.service';
+import { Produto } from '../produto';
 
 @Component({
   selector: 'form-produtos',
@@ -6,16 +8,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./form-produtos.component.css']
 })
 export class FormProdutosComponent implements OnInit {
-  @Output() enviarProduto = new EventEmitter<any>();
-  produto = {nome:"",marca:"",preco:""}
-  constructor() { }
+  produto:Produto = new Produto();
+  constructor(private servico: ProdutoService) { }
 
   ngOnInit() {
   }
 
   salvar(){
-    //Enviar para o componente pai
-    this.enviarProduto.emit(this.produto);
+    this.servico.addProduto(this.produto);
+    this.produto = new Produto();
+
   }
 
 }
