@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'tabela-produtos',
@@ -6,13 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabela-produtos.component.css']
 })
 export class TabelaProdutosComponent implements OnInit {
-  produtos = [
-    {nome:"produto1",marca:"marcax",preco:30.0},
-    {nome:"produto2",marca:"marcay",preco:40.0},
-    {nome:"produto3",marca:"marcax",preco:60.0},
-    {nome:"produto4",marca:"marcay",preco:70.0}
-    
-  ];
+  @Input() lista;
   constructor() { }
 
   ngOnInit() {

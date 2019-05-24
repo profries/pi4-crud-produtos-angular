@@ -1,12 +1,12 @@
 <h3>Tabela de Produtos</h3>
-<p *ngIf="!produtos || produtos.length <= 0">Não contém produtos</p>
-<table *ngIf="produtos && produtos.length > 0" id="customers">
+<p *ngIf="!lista || lista.length <= 0">Não contém produtos</p>
+<table *ngIf="lista && lista.length > 0" id="produtos">
   <tr>
     <th>Nome</th>
     <th>Marca</th>
     <th>Preço</th>
   </tr>
-  <tr *ngFor="let produto of produtos">
+  <tr *ngFor="let produto of lista">
     <td>{{produto.nome}}</td>
     <td>{{produto.marca}}</td>
     <td>{{produto.preco}}</td>

@@ -1,8 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>{{titulo}}</h1>
-
-  <tabela-produtos></tabela-produtos>
-  <form-produtos></form-produtos>
+  <p>{{listaProdutos.length}}</p>
+  <tabela-produtos [lista]="listaProdutos"></tabela-produtos>
+  <form-produtos (enviarProduto)="adicionarProduto($event)"></form-produtos>
 </div>
 
