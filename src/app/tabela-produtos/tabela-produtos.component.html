@@ -1,14 +1,18 @@
 <h3>Tabela de Produtos</h3>
+
 <p *ngIf="!lista || lista.length <= 0">Não contém produtos</p>
 <table *ngIf="lista && lista.length > 0" id="produtos">
   <tr>
     <th>Nome</th>
     <th>Marca</th>
     <th>Preço</th>
+    <th>Validade</th>
   </tr>
-  <tr *ngFor="let produto of lista">
+  <tr *ngFor="let produto of lista | filtroMarca">
     <td>{{produto.nome}}</td>
-    <td>{{produto.marca}}</td>
-    <td>{{produto.preco}}</td>
+    <td>{{produto.marca | uppercase}}</td>
+    <td>{{produto.preco | moeda}}</td>
+    <td>{{produto.dataValidade | date:'dd/MM/yyyy'}}</td>
+
   </tr>
 </table>

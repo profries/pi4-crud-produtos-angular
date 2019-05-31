@@ -7,12 +7,16 @@ import { TabelaProdutosComponent } from './tabela-produtos/tabela-produtos.compo
 import { FormProdutosComponent } from './form-produtos/form-produtos.component';
 import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './produto.service';
+import { MoedaPipe } from './moeda.pipe';
+import { FiltroMarcaPipe } from './filtro-marca.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TabelaProdutosComponent,
-    FormProdutosComponent
+    FormProdutosComponent,
+    MoedaPipe,
+    FiltroMarcaPipe
   ],
   imports: [
     BrowserModule,

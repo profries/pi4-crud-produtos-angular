@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<nav>
+  <a routerLink="/tabela" routerLinkActive="active">Tabela</a>
+  <a routerLink="/form" routerLinkActive="active">Cadastro</a>
+</nav>
 <div style="text-align:center">
   <h1>{{titulo}}</h1>
-  <tabela-produtos></tabela-produtos>
-  <form-produtos></form-produtos>
+  <router-outlet></router-outlet>
 </div>
+
 

@@ -6,6 +6,8 @@
     <input type="text" name="marca" [(ngModel)]="produto.marca"><br/>
     Preço:
     <input type="text" name="preco" [(ngModel)]="produto.preco"><br/><br/>
+    Validade:
+    <input type="date" name="preco" [(ngModel)]="produto.dataValidade"><br/><br/>
 
     <input type="button" value="Salvar" (click)="salvar()">
     <p>{{produto.nome}}</p>
