@@ -21,4 +21,16 @@ export class ProdutoService {
   addProduto(produto:Produto){
     this.listaProdutos.push(produto);
   }
+
+  deletar(id){
+    this.listaProdutos.splice(id,1);
+  }
+
+  buscarPorId(id: number): Produto{
+    return this.listaProdutos[id];
+  }
+
+  editar(id:number, prod:Produto){
+    this.listaProdutos[id] = prod;
+  }
 }

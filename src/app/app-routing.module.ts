@@ -5,7 +5,8 @@ import { FormProdutosComponent } from './form-produtos/form-produtos.component';
 
 const routes: Routes = [
   { path:"tabela", component:TabelaProdutosComponent },
-  { path:"form", component:FormProdutosComponent },
+  { path:"novo", component:FormProdutosComponent },
+  { path:"edit/:id", component:FormProdutosComponent },
   { path:"", redirectTo:"/tabela", pathMatch:'full' }
 ];
 
