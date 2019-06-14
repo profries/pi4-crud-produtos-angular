@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { ProdutoService } from './produto.service';
 import { MoedaPipe } from './moeda.pipe';
 import { FiltroMarcaPipe } from './filtro-marca.pipe';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FiltroMarcaPipe } from './filtro-marca.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [ProdutoService],
   bootstrap: [AppComponent]

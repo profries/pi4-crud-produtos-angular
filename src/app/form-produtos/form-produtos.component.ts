@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ProdutoService } from '../produto.service';
 import { Produto } from '../produto';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ProdutoApiService } from '../produto-api.service';
 
 @Component({
   selector: 'form-produtos',
@@ -12,7 +13,7 @@ export class FormProdutosComponent implements OnInit {
   produto:Produto;
   id: number;
   constructor(
-    private servico: ProdutoService,
+    private api: ProdutoApiService,
     private router: Router, 
     private rota: ActivatedRoute) { }
 
@@ -21,7 +22,13 @@ export class FormProdutosComponent implements OnInit {
     this.id = this.rota.snapshot.params['id'];
     if(this.id){
       console.log("ID:",this.id);
-      this.produto = this.servico.buscarPorId(this.id);
+      //this.produto = this.servico.buscarPorId(this.id);
+      this.api.getProduto(this.id).subscribe(res => {
+        this.produto = res;
+        console.log(this.produto);
+      }, err => { 
+        console.error("Erro: "+err);
+      });
     }
     else{
       console.log("não tem id");
@@ -31,10 +38,21 @@ export class FormProdutosComponent implements OnInit {
 
   salvar(){
     if(this.id){
-      this.servico.editar(this.id, this.produto);
+      //this.servico.editar(this.id, this.produto);
+      this.api.updateProduto(this.id, this.produto).subscribe(res => {        
+        console.log(this.produto);
+      }, err => { 
+        console.error("Erro: "+err);
+      });
+
     }
     else{
-      this.servico.addProduto(this.produto);
+      //this.servico.addProduto(this.produto);
+      this.api.addProduto(this.produto).subscribe(res => {        
+        console.log(this.produto);
+      }, err => { 
+        console.error("Erro: "+err);
+      });
     }
     this.router.navigate(['/tabela']);
   }

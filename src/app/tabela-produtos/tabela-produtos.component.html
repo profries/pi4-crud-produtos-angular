@@ -6,17 +6,15 @@
     <th>Nome</th>
     <th>Marca</th>
     <th>Preço</th>
-    <th>Validade</th>
     <th>Editar</th>
     <th>Deletar</th>
   </tr>
   <tr *ngFor="let produto of lista; let i= index ">
     <td>{{produto.nome}}</td>
     <td>{{produto.marca | uppercase}}</td>
-    <td>{{produto.preco}}</td>
-    <td>{{produto.dataValidade | date:'dd/MM/yyyy'}}</td>
-    <td><a [routerLink]="'/edit/'+i">Editar</a></td>
-    <td><a (click)="deletar(i)">Excluir</a> </td>
+    <td>{{produto.preco | moeda}}</td>
+    <td><a [routerLink]="'/edit/'+produto._id">Editar</a></td>
+    <td><a [routerLink]="'/tabela'" (click)="deletar(produto._id)">Excluir</a> </td>
 
   </tr>
 </table>
